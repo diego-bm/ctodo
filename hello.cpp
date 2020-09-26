@@ -35,13 +35,11 @@ void listTasks(Task taskList[], Task firtTask[])
 
     if (taskList[index].done)
     {
-      cout << " (Done)";
+      cout << "(Done) ";
     }
 
     cout << taskList[index].desc;
-
     cout << endl;
-
     index++;
   }
 
@@ -63,10 +61,9 @@ void completeTask(Task taskList[], Task firtTask[])
   int index = stoi(input) - 1;
 
   Task *previusTask = taskList;
+
   taskList = firtTask;
-
   taskList[index].completed();
-
   taskList = previusTask;
 }
 
@@ -75,8 +72,7 @@ int showMenu()
   cout << "1. Listar tareas" << endl;
   cout << "2. Agregar tarea" << endl;
   cout << "3. Completar tarea" << endl;
-  cout << "4. Borrar tarea" << endl;
-  cout << "5. Salir" << endl;
+  cout << "4. Salir" << endl;
 
   string input = ask("Seleccione una opción:");
   int option = stoi(input);
@@ -105,13 +101,16 @@ int main()
     case 1:
       listTasks(taskList, firstTask);
       break;
+
     case 2:
       taskList = addTask(taskList);
       break;
+
     case 3:
       completeTask(taskList, firstTask);
       break;
-    case 5:
+
+    case 4:
       exit = true;
       break;
 
